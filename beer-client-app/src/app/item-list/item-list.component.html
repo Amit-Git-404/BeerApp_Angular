@@ -1,0 +1,33 @@
+<div class="search-bar">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search...">
+    <button class="search-buton">Search</button>
+</div>
+<div class="item-container">
+    <div class="item" *ngFor="let item of beerData">
+        <div class="favorite-icon" (click)="handleFavorites(item.id)">
+            <i *ngIf="!item.isFavourite" class="fa fa-heart-o" aria-hidden="true" title="mark it as favorite"></i>
+            <i *ngIf="item.isFavourite" class="fa fa-heart heart-color" title="remove from your favorites"></i>
+        </div>
+        <div class="item-content">
+            <img [src]="item.image_url" alt="Item Image">
+            <div class="item-details">
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showPaging" class="pb-4 pt-4 d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#" (click)="prevPage()">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">{{currentPage}}</a></li>
+          <li class="page-item"><a class="page-link" href="#" (click)="nextPage()">Next</a></li>
+        </ul>
+      </nav>
+</div>
+<div *ngIf="noResultFound" class="no-result-found">
+    <p class="no-result-found-text">Sorry no result found for
+        <span>{{searchTerm}}</span>
+    </p>
+</div>

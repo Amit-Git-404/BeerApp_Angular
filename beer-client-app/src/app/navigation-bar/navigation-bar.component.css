@@ -1,0 +1,40 @@
+.nav-bar-inner-container {
+    max-width: calc(.8 * 100vw);
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin: 0 auto;
+}
+
+.right-options {
+    justify-content: right;
+}
+
+.web {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 995px) {
+    .nav-bar-inner-container {
+        max-width: calc(.4 * 100vw);
+        justify-content: space-between;
+    }
+
+    .web {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+}
+
+@media (max-width: 665px){
+    .nav-bar-inner-container {
+        max-width: 85vw;
+    }
+}

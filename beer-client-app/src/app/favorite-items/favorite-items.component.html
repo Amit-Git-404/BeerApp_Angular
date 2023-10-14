@@ -1,0 +1,15 @@
+<h2 class="favorite-header-text">{{favoriteInfoText}}</h2>
+<div class="item-container">
+    <div class="item" *ngFor="let item of favoriteItems">
+        <div class="favorite-icon" aria-disabled="true" (click)="handleFavorites(item)">
+            <i class="fa fa-heart heart-color"></i>
+        </div>
+        <div class="item-content">
+            <img [src]="item.image_url" alt="Item Image">
+            <div class="item-details">
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
